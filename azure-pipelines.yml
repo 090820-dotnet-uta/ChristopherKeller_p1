@@ -40,6 +40,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
+    projects: './P1_WIP/P1Tests/P1Tests.csproj'
+    testRunTitle: 'test'
 
 - task: SonarCloudAnalyze@1
 
