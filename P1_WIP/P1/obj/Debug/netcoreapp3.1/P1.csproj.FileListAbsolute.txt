@@ -176,3 +176,7 @@ C:\Users\chris\Documents\RevWork\P1_WIP\P1\obj\Debug\netcoreapp3.1\Razor\Views\H
 C:\Users\chris\Documents\RevWork\P1_WIP\P1\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register.cshtml.g.cs
 C:\Users\chris\Documents\RevWork\P1_WIP\P1\obj\Debug\netcoreapp3.1\Razor\Views\Selection\SelectLocation.cshtml.g.cs
 C:\Users\chris\Documents\RevWork\P1_WIP\P1\obj\Debug\netcoreapp3.1\Razor\Views\Selection\ProductList.cshtml.g.cs
+C:\Users\chris\Documents\RevWork\P1_WIP\P1\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.bigmattressinc - Web Deploy.json
+C:\Users\chris\Documents\RevWork\P1_WIP\P1\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\Users\chris\Documents\RevWork\P1_WIP\P1\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\bigmattressinc - Web Deploy\mssql1.arm.json
+C:\Users\chris\Documents\RevWork\P1_WIP\P1\bin\Debug\netcoreapp3.1\Properties\ServiceDependencies\bigmattressinc - Web Deploy\profile.arm.json

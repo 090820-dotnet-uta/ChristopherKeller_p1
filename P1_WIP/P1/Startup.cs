@@ -18,6 +18,8 @@ namespace P1
 {
     public class Startup
     {
+        //something new
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,7 +33,7 @@ namespace P1
             services.AddControllersWithViews();
             services.AddMemoryCache();
             services.AddDbContext<MyDbContext>(options =>
-                    options.UseSqlServer("Data Source=TOPHERSSD;Initial Catalog=P0_db;Integrated Security=True"));
+                    options.UseSqlServer("DefaultConnection"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
