@@ -36,11 +36,12 @@ steps:
     command: 'build'
     projects: './P1_WIP/P1/P1.csproj'
 
-# - task: VSTest@2
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
 
+- task: SonarCloudAnalyze@1
+
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 
 - task: DotNetCoreCLI@2
   inputs:
