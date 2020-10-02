@@ -27,6 +27,8 @@ namespace P1.Controllers
 
         public IActionResult Login()
         {
+            Seeder.SeedProducts(_db);
+            Seeder.SeedStores(_db);
             //BusinessLogic.clearCache(_cache);
             return View();
         }
@@ -49,7 +51,7 @@ namespace P1.Controllers
             {
                 _cache.Set("currentCust", Username);
                 string test = (string)_cache.Get("currentCust");
-                _logger.LogInformation($"{test} is in the cache");             
+                _logger.LogInformation($"{test} is in the cache");
                 Models.User.Username = Username;
                 return RedirectToAction("SelectLocation", "Selection");
 
