@@ -27,8 +27,8 @@ namespace P1.Controllers
 
         public IActionResult Login()
         {
-            Seeder.SeedProducts(_db);
-            Seeder.SeedStores(_db);
+            //Seeder.SeedProducts(_db);
+            //Seeder.SeedStores(_db);
             //BusinessLogic.clearCache(_cache);
             return View();
         }

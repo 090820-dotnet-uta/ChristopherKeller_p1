@@ -33,7 +33,7 @@ namespace P1
             services.AddControllersWithViews();
             services.AddMemoryCache();
             services.AddDbContext<MyDbContext>(options =>
-                    options.UseSqlServer("Server=tcp:bigmattressinc.database.windows.net,1433;Initial Catalog=P1db;Persist Security Info=False;User ID=adminlogin;Password=Zaxtoph8!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
+                    options.UseSqlServer(Configuration.GetConnectionString("AzureDatabase")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
