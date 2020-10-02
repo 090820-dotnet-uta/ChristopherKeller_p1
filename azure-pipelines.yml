@@ -35,9 +35,14 @@ steps:
   inputs:
     command: 'build'
     projects: './P1_WIP/P1/P1.csproj'
+    arguments: '--configuration $(buildConfiguration)'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
 
 - task: SonarCloudAnalyze@1
+
 
 - task: SonarCloudPublish@1
   inputs:
