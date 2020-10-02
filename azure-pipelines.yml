@@ -43,6 +43,11 @@ steps:
     projects: './P1_WIP/P1Tests/P1Tests.csproj'
     testRunTitle: 'test'
 
+- task: VSTest@2
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
 - task: SonarCloudAnalyze@1
 
 
