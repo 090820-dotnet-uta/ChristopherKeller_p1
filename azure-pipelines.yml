@@ -23,6 +23,14 @@ steps:
 #     platform: '$(buildPlatform)'
 #     configuration: '$(buildConfiguration)'
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'p1connectionname'
+    organization: 'chriskeller94'
+    scannerMode: 'MSBuild'
+    projectKey: 'chriskeller94_ChristopherKeller_p1'
+    projectName: 'ChristopherKeller_p1'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
