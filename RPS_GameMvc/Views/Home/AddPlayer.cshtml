@@ -1,0 +1,42 @@
+﻿@model RPS_GameMvc.Models.Player
+
+@{
+	ViewData["Title"] = "Welcome Page";
+}
+
+<h1>@ViewData["Title"]</h1>
+<h1 class="display-3">@ViewData["notFound"]</h1>
+<a asp-action="PlayGame" asp-controller="Home">Play a game</a>
+<div>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.PlayerId)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.PlayerId)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Wins)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Wins)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Losses)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Losses)
+		</dd>
+	</dl>
+</div>
+<div>
+	@* add a link to a logout action which will redirect to index *@
+	@Html.ActionLink("Edit", "EditPlayer", new { id = Model.PlayerId }) | <a asp-action="PlayerList">Back to List</a>
+</div>

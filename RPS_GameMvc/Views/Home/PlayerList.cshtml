@@ -1,0 +1,53 @@
+﻿@model IEnumerable<RPS_GameMvc.Models.Player>
+
+@{
+    ViewData["Title"] = "PlayerList";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Logout">Login as different player</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Wins)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Losses)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wins)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Losses)
+            </td>
+			<td>
+				@Html.ActionLink("Edit", "EditPlayer", new { id = item.PlayerId }) |
+				@Html.ActionLink("Details", "PlayerDetails", new { id = item.PlayerId })
+				@Html.ActionLink("Delete", "DeletePlayer", new { id = item.PlayerId })
+			</td>
+        </tr>
+}
+    </tbody>
+</table>

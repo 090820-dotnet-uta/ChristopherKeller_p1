@@ -1,0 +1,32 @@
+﻿@model IEnumerable<P1.Models.Store>
+
+@{
+    ViewData["Title"] = "SelectLocation";
+}
+
+<h1>Please Select a Store</h1>
+
+<p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                <a asp-action="ProductList" asp-route-id="@item.StoreId">Shop Here!</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

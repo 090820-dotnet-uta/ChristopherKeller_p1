@@ -1,0 +1,79 @@
+﻿@model RPS_GameMvc.Models.Game
+
+@{
+	ViewData["Title"] = "PlayGame";
+}
+
+<h1>PlayGame</h1>
+<div>
+	<h4>Game</h4>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.GameId)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.GameId)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Player1.Name)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Player1.Name)
+		</dd>
+		<dt class="col-sm-2">
+			@Html.DisplayNameFor(model => model.Computer.Name)
+		</dt>
+		<dd class="col-sm-10">
+			@Html.DisplayFor(model => model.Computer.Name)
+		</dd>
+	</dl>
+</div>
+<div>
+	<a asp-action="Logout">Log Out</a>
+	<a asp-action="PlayGame">Play Another Game</a>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Player Name
+			</th>
+			<th>
+				Player Choice
+			</th>
+			<th>
+				Computer
+			</th>
+			<th>
+				Computer Choice
+			</th>
+			<th>
+				Which Player Won?
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.rounds)
+		{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.player1.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.p1Choice)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Computer.Name)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.ComputerChoice)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Outcome)
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

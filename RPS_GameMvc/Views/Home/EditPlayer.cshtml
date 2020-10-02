@@ -1,0 +1,48 @@
+﻿@model RPS_GameMvc.Models.Player
+
+@{
+    ViewData["Title"] = "EditPlayer";
+}
+
+<h1>EditPlayer</h1>
+
+<h4>Player</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="EditPlayer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlayerId" class="control-label"></label>
+                <input asp-for="PlayerId" class="form-control" readonly />
+                <span asp-validation-for="PlayerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Wins" class="control-label"></label>
+                <input asp-for="Wins" class="form-control" min="0"/>
+                <span asp-validation-for="Wins" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Losses" class="control-label"></label>
+                <input asp-for="Losses" class="form-control" min="0" />
+                <span asp-validation-for="Losses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="PlayerList">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
