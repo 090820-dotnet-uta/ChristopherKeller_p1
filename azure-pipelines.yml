@@ -16,17 +16,22 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+# - task: VSBuild@1
+#   inputs:
+#     solution: '$(solution)'
+#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    projects: './P1_WIP/P1/P1.csproj'
+
+# - task: VSTest@2
+#   inputs:
+#     platform: '$(buildPlatform)'
+#     configuration: '$(buildConfiguration)'
 
 
 - task: DotNetCoreCLI@2
@@ -35,8 +40,11 @@ steps:
     publishWebProjects: true
     arguments: '--configuration $(buildConfiguration) --output $(build.ArtifactStagingDirectory)'
     zipAfterPublish: true
-    
-- task: DotNetCoreCLI@2
+
+- task: AzureWebApp@1
   inputs:
-    command: 'build'
-    projects: './P1/P1.sln'
+    azureSubscription: 'Azure subscription 1(4d58c592-1d2c-41cc-99ec-37f71536b901)'
+    appType: 'webApp'
+    appName: 'bigmattressinc'
+    package: '$(build.ArtifactStagingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
