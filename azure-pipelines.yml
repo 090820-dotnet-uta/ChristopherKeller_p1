@@ -1,12 +1,3 @@
-# ASP.NET Core (.NET Framework)
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: './P1_WIP/P1/P1.csproj'
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
 - main
 
@@ -36,3 +27,16 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--configuration $(buildConfiguration) --output $(build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
+    
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: './P1/P1.sln'
