@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj": {}
+    "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\P1\\P1.csproj": {
+    "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\P1\\P1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\P1\\P1.csproj",
+        "projectUniqueName": "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\P1\\P1.csproj",
         "projectName": "P1",
-        "projectPath": "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\P1\\P1.csproj",
+        "projectPath": "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\P1\\P1.csproj",
         "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\P1\\obj\\",
+        "outputPath": "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\P1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -101,14 +101,14 @@
         }
       }
     },
-    "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj": {
+    "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj",
+        "projectUniqueName": "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj",
         "projectName": "P1Tests",
-        "projectPath": "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj",
+        "projectPath": "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\XUnitTestProject1\\P1Tests.csproj",
         "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\XUnitTestProject1\\obj\\",
+        "outputPath": "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\XUnitTestProject1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -128,8 +128,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\P1\\P1.csproj": {
-                "projectPath": "C:\\Users\\chris\\Documents\\RevWork\\P1_WIP\\P1\\P1.csproj"
+              "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\P1\\P1.csproj": {
+                "projectPath": "C:\\Users\\chris\\Desktop\\ALL_REPOS\\ChristopherKeller_p1\\P1_WIP\\P1\\P1.csproj"
               }
             }
           }
