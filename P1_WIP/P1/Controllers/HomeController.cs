@@ -25,6 +25,10 @@ namespace P1.Controllers
             _cache = cache;
         }
 
+        /// <summary>
+        /// Returns the login view.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Login()
         {
             //Seeder.SeedProducts(_db);//used to seed db
@@ -32,12 +36,12 @@ namespace P1.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
+        /// <summary>
+        /// Calls dbLoginCheck to see if the user should be logged in and stores them in the cache if they are. 
+        /// </summary>
+        /// <param name="Username"></param>
+        /// <param name="Password"></param>
+        /// <returns>If pass: Redirect to SelectLocation actionmethod</returns>
         public IActionResult LoginCheck(string Username, string Password)
         {
             bool check = BusinessLogic.dbLoginCheck(Username, Password, _db);
@@ -57,11 +61,20 @@ namespace P1.Controllers
 
         }
 
+        /// <summary>
+        /// Returns the register view.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Register()
         {
             return View();
         }
 
+        /// <summary>
+        /// Checks if the user should be entered into the db, and does so if true.
+        /// </summary>
+        /// <param name="newCust"></param>
+        /// <returns>Login View</returns>
         public IActionResult RegisterToDb(Customer newCust)
         {
 
@@ -82,6 +95,10 @@ namespace P1.Controllers
 
         }
 
+        /// <summary>
+        /// Removes all user information from the cache and returns to the login view.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Logout()
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -103,6 +120,11 @@ namespace P1.Controllers
             return RedirectToAction("Login");
         }
 
+        /// <summary>
+        /// Searches for the username in the db.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns>View with the relevant user info.</returns>
         public IActionResult SearchUser(string username)
         {
             bool check = BusinessLogic.SearchUsername(username, _db);
@@ -114,6 +136,12 @@ namespace P1.Controllers
 
             ViewBag.userCheck = "That username does not exist in the database.";
             return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

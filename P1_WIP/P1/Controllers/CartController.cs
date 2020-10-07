@@ -24,7 +24,12 @@ namespace P1.Controllers
             _db = db;
             _cache = cache;
         }
-
+        /// <summary>
+        /// Takes user info and adds them to the cache cart. Catches duplicate prodIds and adds them to the existing quantitiy.
+        /// </summary>
+        /// <param name="numOrdered"></param>
+        /// <param name="prodId"></param>
+        /// <returns>Redirect to SelectLocation ActionMethod</returns>
         public IActionResult AddToCart(int numOrdered, int prodId)
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -145,6 +150,10 @@ namespace P1.Controllers
             }
         }
 
+        /// <summary>
+        /// Gets user's cart info from cache and displays it to the user.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult ViewCart()
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -188,11 +197,19 @@ namespace P1.Controllers
 
         }
 
+        /// <summary>
+        /// Method to return a statement to the user if they attempt to access their cart while it is empty.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult EmptyCart()
         {
             return View();
         }
 
+        /// <summary>
+        /// Checks the user to confirm their decision to checkout.
+        /// </summary>
+        /// <returns>Redirect to Checkout ActionMethod</returns>
         public IActionResult ConfirmCheckout()
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -213,6 +230,10 @@ namespace P1.Controllers
 
         }
 
+        /// <summary>
+        /// Passes the user's cart to the AddCartToDb method and returns a confirmation screen.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Checkout()
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -242,6 +263,10 @@ namespace P1.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Clears the cache of any cart info after the user checks out.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult ClearCart()
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -267,6 +292,11 @@ namespace P1.Controllers
             return RedirectToAction("SelectLocation", "Selection");
         }
 
+        /// <summary>
+        /// Passes prodId to RemoveFromCart method that will take a specific product out of the cart.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Redirect to ViewCart</returns>
         public IActionResult RemoveItem(int id)
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -282,6 +312,10 @@ namespace P1.Controllers
 
         }
 
+        /// <summary>
+        /// Calls RemoveFromCart whenever a user tries to add more items to the cart than exist in inventory and bypasses the data notation.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult FailedInventoryCheck()
         {
             bool check = BusinessLogic.checkUserCache(_cache);

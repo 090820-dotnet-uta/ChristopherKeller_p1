@@ -12,6 +12,13 @@ namespace P1.Models
     public class BusinessLogic
     {
 
+        /// <summary>
+        /// Checks user's login info.
+        /// </summary>
+        /// <param name="usern"></param>
+        /// <param name="passw"></param>
+        /// <param name="_db"></param>
+        /// <returns>True if they can login; false otherwise.</returns>
         public static bool dbLoginCheck(string usern, string passw, MyDbContext _db)
         {
 
@@ -27,6 +34,12 @@ namespace P1.Models
             else return false;
         }
 
+        /// <summary>
+        /// Checks if the user can be registered.
+        /// </summary>
+        /// <param name="newCust"></param>
+        /// <param name="_db"></param>
+        /// <returns>true is they can; false otherwise</returns>
         public static bool dbRegistrationCheck(Customer newCust, MyDbContext _db)
         {
             if (_db.Customers.Any(x => x.Username == newCust.Username))
@@ -39,12 +52,22 @@ namespace P1.Models
             }
         }
 
+        /// <summary>
+        /// Adds new customer to the db.
+        /// </summary>
+        /// <param name="newCust"></param>
+        /// <param name="_db"></param>
         public static void addNewCustomer(Customer newCust, MyDbContext _db)
         {
             _db.Customers.Add(newCust);
             _db.SaveChanges();
         }
 
+        /// <summary>
+        /// Checks to see if the current user exists in the cache.
+        /// </summary>
+        /// <param name="cache"></param>
+        /// <returns>True if they are, false otherwise</returns>
         public static bool checkUserCache(IMemoryCache cache)
         {
             if (cache.TryGetValue("currentCust", out string customer))
@@ -61,6 +84,10 @@ namespace P1.Models
             }
         }
 
+        /// <summary>
+        /// Clears current customer's name from the cache.
+        /// </summary>
+        /// <param name="cache"></param>
         public static void clearNameCache(IMemoryCache cache)
         {
             bool check = cache.TryGetValue("currentCust", out Customer cust);
@@ -70,6 +97,10 @@ namespace P1.Models
             }
         }
 
+        /// <summary>
+        /// Initializes a new Cart.
+        /// </summary>
+        /// <returns>Cart</returns>
         public static Cart NewCart()
         {
             Cart currentCart = new Cart();//creating a new cart and initializing accossiated lists
@@ -86,6 +117,12 @@ namespace P1.Models
             return currentCart;
         }
 
+        /// <summary>
+        /// Sums the current cost of all products in cart.
+        /// </summary>
+        /// <param name="quantities"></param>
+        /// <param name="costs"></param>
+        /// <returns>Rounded double of total cost in cart.</returns>
         public static double GetCartTotal(List<int> quantities, List<double> costs)
         {
             double totalCost = 0;
@@ -97,6 +134,12 @@ namespace P1.Models
 
         }
 
+        /// <summary>
+        /// Given the user's username, finds their customer Id.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="_db"></param>
+        /// <returns>Customer Id</returns>
         public static int GetCustId(string username, MyDbContext _db)
         {
             try
@@ -113,6 +156,12 @@ namespace P1.Models
             }
         }
 
+        /// <summary>
+        /// Given a list of location Id's, returns their corresponding store locations as a list.
+        /// </summary>
+        /// <param name="locIds"></param>
+        /// <param name="_db"></param>
+        /// <returns>List of store locations</returns>
         public static List<string> GetLocationNameList(List<int> locIds, MyDbContext _db)
         {
             List<string> locations = new List<string>();
@@ -124,6 +173,11 @@ namespace P1.Models
             return locations;
         }
 
+        /// <summary>
+        /// Adds current cart to the db. Takes orders from the cart and passes them individually to the db.
+        /// </summary>
+        /// <param name="currentCart"></param>
+        /// <param name="_db"></param>
         public static void AddCartToDb(Cart currentCart, MyDbContext _db)
         {
             var orderList = new List<Order>();
@@ -153,6 +207,12 @@ namespace P1.Models
             return;
         }
 
+        /// <summary>
+        /// Searches whether a user exists in the db, given their username.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="_db"></param>
+        /// <returns>True if they exist, false otherwise.</returns>
         public static bool SearchUsername(string username, MyDbContext _db)
         {
             if (_db.Customers.Any(x => x.Username == username))
@@ -162,6 +222,11 @@ namespace P1.Models
             else return false;
         }
 
+        /// <summary>
+        /// Removes a given product from the cart. Recalculates cart total cost.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="_cache"></param>
         public static void RemoveFromCart(int id, IMemoryCache _cache)
         {
             List<int> prodIds = (List<int>)_cache.Get("prodIds");
@@ -190,6 +255,13 @@ namespace P1.Models
             return;
         }
 
+        /// <summary>
+        /// Checks that added product plus any of the same product already in the cart do not exceed the total amount in inventory.
+        /// </summary>
+        /// <param name="ordered"></param>
+        /// <param name="prodId"></param>
+        /// <param name="_db"></param>
+        /// <returns>True if order exceeds inventory amount, false otherwise</returns>
         public static bool CheckInventory(int ordered, int prodId, MyDbContext _db)
         {
             var inventory = _db.Products.Find(prodId);
@@ -200,18 +272,30 @@ namespace P1.Models
             else return true;
         }
 
-        public static double LocationRevanue(int locId, MyDbContext _db) 
+        /// <summary>
+        /// Calculates the total revanue generated at a location.
+        /// </summary>
+        /// <param name="locId"></param>
+        /// <param name="_db"></param>
+        /// <returns>Revanue, rounded to 2 decimals.</returns>
+        public static double LocationRevanue(int locId, MyDbContext _db)
         {
             double revanue = 0;
             var locOrders = _db.Orders.Where(x => x.LocationId == locId).ToList();
-            foreach (var ord in locOrders) 
+            foreach (var ord in locOrders)
             {
                 revanue += ord.Price;
             }
             return revanue;
         }
 
-        public static double UserOrderTotal(int custId, MyDbContext _db) 
+        /// <summary>
+        /// Calculates the total amount a user has spent.
+        /// </summary>
+        /// <param name="custId"></param>
+        /// <param name="_db"></param>
+        /// <returns>Rounded double</returns>
+        public static double UserOrderTotal(int custId, MyDbContext _db)
         {
             double total = 0;
             var userOrders = _db.Orders.Where(x => x.CustomerId == custId).ToList();
@@ -222,6 +306,12 @@ namespace P1.Models
             return total;
         }
 
+        /// <summary>
+        /// Formats a user-friendly view of relevant past order information at a given location.
+        /// </summary>
+        /// <param name="storeId"></param>
+        /// <param name="_db"></param>
+        /// <returns>List of subcarts to view</returns>
         public static List<HistorySubcart> FormatLocOrderHistory(int storeId, MyDbContext _db)
         {
 
@@ -262,6 +352,12 @@ namespace P1.Models
             return locSubCartList;
         }
 
+        /// <summary>
+        /// Formats a user-friendly view of relevant past user orders.
+        /// </summary>
+        /// <param name="custId"></param>
+        /// <param name="_db"></param>
+        /// <returns>A list of subcarts relevant to the user.</returns>
         public static List<HistorySubcart> FormatUserOrderHistory(int custId, MyDbContext _db)
         {
             List<HistorySubcart> UserSubCartList = new List<HistorySubcart>();

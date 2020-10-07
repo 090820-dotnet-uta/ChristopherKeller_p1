@@ -25,6 +25,10 @@ namespace P1.Controllers
         }
 
 
+        /// <summary>
+        /// Displays a list of store locations and allows the user to chose which one to visit.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult SelectLocation()//lists stores and allows user to choose one
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -36,6 +40,11 @@ namespace P1.Controllers
             return View(_db.Stores);
         }
 
+        /// <summary>
+        /// Takes user's store choice and stores it.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>View of products at chosen store.</returns>
         public IActionResult SetStoreId(int id)
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -52,6 +61,10 @@ namespace P1.Controllers
             return RedirectToAction("ProductList");
         }
 
+        /// <summary>
+        /// Displays products at the chosen store. Users can chose to add products to their carts.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult ProductList()//displays list of products at store
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -66,6 +79,13 @@ namespace P1.Controllers
 
             return View(onlyStoreProducts);
         }
+
+        /// <summary>
+        /// Takes form info of user's product choice.
+        /// </summary>
+        /// <param name="numOrdered"></param>
+        /// <param name="prodId"></param>
+        /// <returns>Redirects to AddCart actionmethod</returns>
         [HttpPost]
         public IActionResult ProductList(int numOrdered, int prodId)
         {

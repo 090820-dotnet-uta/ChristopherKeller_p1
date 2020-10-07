@@ -24,7 +24,11 @@ namespace P1.Controllers
             _cache = cache;
         }
 
-
+        /// <summary>
+        /// Calls method FormatLocOrderHistory to create a user-friendly view (subcart) containing relevant order information at the chosen location.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>View</returns>
         public IActionResult LocOrderHistory(string id)
         {
             bool check = BusinessLogic.checkUserCache(_cache);
@@ -48,6 +52,10 @@ namespace P1.Controllers
             return View(SubCarts);
         }
 
+        /// <summary>
+        /// Calls method FormatUserOrderHistory to create a user-friendly view based on the current customer's order history.
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult UserOrderHistory()
         {
             bool check = BusinessLogic.checkUserCache(_cache);
