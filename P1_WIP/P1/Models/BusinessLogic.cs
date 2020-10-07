@@ -47,7 +47,7 @@ namespace P1.Models
 
         public static bool checkUserCache(IMemoryCache cache)
         {
-            if (cache.TryGetValue("currentCust", out string customer))//TO DO: add db check
+            if (cache.TryGetValue("currentCust", out string customer))
             {
                 if (Models.User.Username == customer)
                 {
@@ -61,7 +61,7 @@ namespace P1.Models
             }
         }
 
-        public static void clearCache(IMemoryCache cache)
+        public static void clearNameCache(IMemoryCache cache)
         {
             bool check = cache.TryGetValue("currentCust", out Customer cust);
             if (check)
@@ -99,9 +99,18 @@ namespace P1.Models
 
         public static int GetCustId(string username, MyDbContext _db)
         {
-            var x = _db.Customers.Where(x => x.Username == User.Username).FirstOrDefault();
-            int id = x.CustomerId;
-            return id;
+            try
+            {
+                var x = _db.Customers.Where(x => x.Username == username).FirstOrDefault();
+                int id = x.CustomerId;
+                return id;
+            }
+            catch (NullReferenceException)
+            {
+                var x = _db.Customers.Where(x => x.Username == User.Username).FirstOrDefault();
+                int id = x.CustomerId;
+                return id;
+            }
         }
 
         public static List<string> GetLocationNameList(List<int> locIds, MyDbContext _db)
@@ -189,6 +198,28 @@ namespace P1.Models
                 return false;
             }
             else return true;
+        }
+
+        public static double LocationRevanue(int locId, MyDbContext _db) 
+        {
+            double revanue = 0;
+            var locOrders = _db.Orders.Where(x => x.LocationId == locId).ToList();
+            foreach (var ord in locOrders) 
+            {
+                revanue += ord.Price;
+            }
+            return revanue;
+        }
+
+        public static double UserOrderTotal(int custId, MyDbContext _db) 
+        {
+            double total = 0;
+            var userOrders = _db.Orders.Where(x => x.CustomerId == custId).ToList();
+            foreach (var ord in userOrders)
+            {
+                total += ord.Price;
+            }
+            return total;
         }
 
         public static List<HistorySubcart> FormatLocOrderHistory(int storeId, MyDbContext _db)
