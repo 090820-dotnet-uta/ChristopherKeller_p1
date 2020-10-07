@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Error :(";
+}
+<style>
+    * {
+        position: center
+    }
+</style>
+<h3>Oops!</h3>
+<p>Unfortunately, we do not have enough items in inventory to fulfill the order. The item has been removed from your cart.</p>
+<br />
+<a href='@Url.Action("ViewCart", "Cart")' class="btn btn-primary">Return</a>
+

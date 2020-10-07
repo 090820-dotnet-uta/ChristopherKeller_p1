@@ -1,0 +1,54 @@
+﻿@model IEnumerable<P1.Models.Subcart>
+
+<h1>Your Current Items</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.prodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.location)
+            </th>
+            <th>Remove From Cart</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prodName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.location)
+                </td>
+                <td>
+                    <a asp-action="RemoveItem" asp-controller="Cart" asp-route-id="@item.Id">Remove</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<h5>Current cart total: $@ViewBag.totalCost</h5>
+<br />
+<div style="font-size:medium">
+    <a href='@Url.Action("ConfirmCheckout", "Cart")' class="btn btn-primary">Confirm Checkout</a>  <a href='@Url.Action("SelectLocation", "Selection")' class="btn btn-primary">Return</a>
+</div>
+
+

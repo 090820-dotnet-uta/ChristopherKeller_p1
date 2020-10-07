@@ -25,10 +25,9 @@ namespace P1.Controllers
         }
 
 
-        public IActionResult SelectLocation()
+        public IActionResult SelectLocation()//lists stores and allows user to choose one
         {
             bool check = BusinessLogic.checkUserCache(_cache);
-            //bool check = true;
             if (!check)
             {
                 _logger.LogInformation("User not logged in, returning to login");
@@ -37,13 +36,44 @@ namespace P1.Controllers
             return View(_db.Stores);
         }
 
-        public IActionResult ProductList(int id)
+        public IActionResult SetStoreId(int id)
         {
+            bool check = BusinessLogic.checkUserCache(_cache);
+            if (!check)
+            {
+                _logger.LogInformation("User not logged in, returning to login");
+                return RedirectToAction("Login", "Home");
+            }
+            Models.User.LocationID = id;
+            var x = _db.Stores.Find(id);
+            string locName = x.Location;
+            TempData["locationName"] = locName;
+            TempData["locationId"] = id.ToString();
+            return RedirectToAction("ProductList");
+        }
+
+        public IActionResult ProductList()//displays list of products at store
+        {
+            bool check = BusinessLogic.checkUserCache(_cache);
+            if (!check)
+            {
+                _logger.LogInformation("User not logged in, returning to login");
+                return RedirectToAction("Login", "Home");
+            }
+            int id = Models.User.LocationID;
             _logger.LogInformation($"Current storeID is {id}");
-            //get product list
             var onlyStoreProducts = _db.Products.Where(x => x.StoreId == id).ToList();
 
             return View(onlyStoreProducts);
         }
+        [HttpPost]
+        public IActionResult ProductList(int numOrdered, int prodId)
+        {
+            _logger.LogInformation($"Ordered {numOrdered} of id: {prodId}");
+            return RedirectToAction("AddToCart", "Cart", new { numOrdered, prodId });
+            //TO DO: add check cart to product list
+        }
+
+
     }
 }

@@ -184,7 +184,6 @@ C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netc
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netcoreapp3.1\Properties\serviceDependencies.bigmattressinc - Web Deploy.json
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netcoreapp3.1\Properties\serviceDependencies.json
-C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\bigmattressinc - Web Deploy\mssql1.arm.json
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netcoreapp3.1\Properties\ServiceDependencies\bigmattressinc - Web Deploy\profile.arm.json
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netcoreapp3.1\appsettings.json
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\bin\Release\netcoreapp3.1\P1.exe
@@ -341,11 +340,6 @@ C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netc
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Home\Register.cshtml.g.cs
-C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Products\Create.cshtml.g.cs
-C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Products\Delete.cshtml.g.cs
-C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Products\Details.cshtml.g.cs
-C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Products\Edit.cshtml.g.cs
-C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Products\Index.cshtml.g.cs
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Selection\ProductList.cshtml.g.cs
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Selection\SelectLocation.cshtml.g.cs
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -362,3 +356,10 @@ C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netc
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\P1.dll
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\P1.pdb
 C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\P1.genruntimeconfig.cache
+C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Cart\Checkout.cshtml.g.cs
+C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Cart\EmptyCart.cshtml.g.cs
+C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Cart\FailedInventoryCheck.cshtml.g.cs
+C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Cart\ViewCart.cshtml.g.cs
+C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\History\LocOrderHistory.cshtml.g.cs
+C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\History\UserOrderHistory.cshtml.g.cs
+C:\Users\chris\Desktop\ALL_REPOS\ChristopherKeller_p1\P1_WIP\P1\obj\Release\netcoreapp3.1\Razor\Views\Home\SearchUser.cshtml.g.cs

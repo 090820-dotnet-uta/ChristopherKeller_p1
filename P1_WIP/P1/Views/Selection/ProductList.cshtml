@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<P1.Models.Product>
 
-@{
-    ViewData["Title"] = "ProductList";
-}
 
-<h1>ProductList</h1>
+<style>
+    * {
+        position: center
+    }
+</style>
+
+<h1>Welcome to @TempData.Peek("locationName") </h1>
 
 
 <table class="table">
@@ -23,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.Quantity)
             </th>
             <th>
-                Add to Cart
+                <strong>Add to Cart</strong>
             </th>
         </tr>
     </thead>
@@ -44,9 +47,17 @@
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
                 <td>
-                    Add to Cart Here
+                    <form method="post">
+                        <input type="number" name="numOrdered[]" min="0" max="@item.Quantity" />
+                        <input type="hidden" name="prodId[]" value="@item.Id" />
+                        <input type="submit" value="Add to Cart" />
+                    </form>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<a href='@Url.Action("SelectLocation", "Selection")' class="btn btn-primary">Return</a>
+<br />
+<br />
+<a asp-action="LocOrderHistory" asp-controller="History" asp-route-id="@TempData["locationId"]">Show Past Orders at this Location</a>

@@ -8,7 +8,7 @@
     <p class="text-black-50">Please Login or press Register</p>
 </div>
 <div class="col-md-4">
-    <div class="justify-content-center">
+    <div>
 
         <form asp-action="LoginCheck">
             <div class="form-group">
@@ -21,9 +21,19 @@
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <input type="submit" value="Login" class="btn btn-primary" asp-action="LoginCheck" />
+            <input type="submit" value="Login" class="btn btn-primary" asp-action="LoginCheck" /> <a href='@Url.Action("Register", "Home")' class="btn btn-primary">Register</a>
         </form>
     </div>
-    <a asp-action="Register" asp-controller="Home">Register</a>
+    <br />
+    <p>Search For Username</p>
+    <form asp-action="SearchUser">
+        <div class="form-group">
+            <label asp-for="Username" class="control-label"></label>
+            <input asp-for="Username" class="form-control" placeholder="Username" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+        <input type="submit" value="Search" class="btn btn-primary" asp-action="SearchUser" />
+    </form>
+
 
 </div>

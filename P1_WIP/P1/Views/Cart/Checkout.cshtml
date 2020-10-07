@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Checkout";
+}
+<style>
+    * { position:center
+    }
+</style>
+<h3>Thank You!</h3>
+<br />
+<p>Your order has been processed!</p>
+<div style="font-size:medium">
+    <a href='@Url.Action("ClearCart", "Cart")' class="btn btn-primary">Continue Shopping</a>  <a href='@Url.Action("Logout", "Home")' class="btn btn-primary">Logout</a>
+</div>
+

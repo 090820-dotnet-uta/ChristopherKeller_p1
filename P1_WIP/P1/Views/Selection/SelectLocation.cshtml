@@ -24,7 +24,7 @@
                 @Html.DisplayFor(modelItem => item.Location)
             </td>
             <td>
-                <a asp-action="ProductList" asp-route-id="@item.StoreId">Shop Here!</a>
+                <a asp-action="SetStoreId" asp-route-id="@item.StoreId">Shop Here!</a>
             </td>
         </tr>
 }

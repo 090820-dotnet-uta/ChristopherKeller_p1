@@ -1,0 +1,66 @@
+﻿@model IEnumerable<P1.Models.HistorySubcart>
+
+@{
+    ViewData["Title"] = "UserOrderHistory";
+}
+
+<h3>Your Order History</h3>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.cartId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prodCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.locId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.time)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cartId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prodId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prodName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prodCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.locId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.time)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

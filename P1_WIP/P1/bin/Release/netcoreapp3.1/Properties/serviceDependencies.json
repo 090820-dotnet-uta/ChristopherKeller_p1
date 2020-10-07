@@ -1,8 +1,3 @@
 {
-  "dependencies": {
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "Server=tcp:bigmattressinc.database.windows.net,1433;InitialCatalog=P1db;PersistSecurityInfo=False;UserID=adminlogin;Password=Zaxtoph8!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;ConnectionTimeout=30;"
-    }
-  }
+  "dependencies": {}
 }

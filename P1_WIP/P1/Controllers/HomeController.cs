@@ -27,14 +27,8 @@ namespace P1.Controllers
 
         public IActionResult Login()
         {
-            //Seeder.SeedProducts(_db);
+            //Seeder.SeedProducts(_db);//used to seed db
             //Seeder.SeedStores(_db);
-            //BusinessLogic.clearCache(_cache);
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
             return View();
         }
 
@@ -53,6 +47,7 @@ namespace P1.Controllers
                 string test = (string)_cache.Get("currentCust");
                 _logger.LogInformation($"{test} is in the cache");
                 Models.User.Username = Username;
+
                 return RedirectToAction("SelectLocation", "Selection");
 
             }
@@ -69,6 +64,8 @@ namespace P1.Controllers
 
         public IActionResult RegisterToDb(Customer newCust)
         {
+
+
             bool check = BusinessLogic.dbRegistrationCheck(newCust, _db);
             if (check)//passes dbcheck
             {
@@ -83,6 +80,40 @@ namespace P1.Controllers
                 return View("Register");
             }
 
+        }
+
+        public IActionResult Logout()
+        {
+            bool check = BusinessLogic.checkUserCache(_cache);
+            if (!check)
+            {
+                _logger.LogInformation("User not logged in, returning to login");
+                return RedirectToAction("Login");
+            }
+
+            _cache.Remove("prodIds");
+            _cache.Remove("locIds");
+            _cache.Remove("costs");
+            _cache.Remove("prodNames");
+            _cache.Remove("quantities");
+            _cache.Remove("totalCost");
+            _cache.Remove("custId");
+            _cache.Remove("currentCust");
+
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult SearchUser(string username)
+        {
+            bool check = BusinessLogic.SearchUsername(username, _db);
+            if (check)
+            {
+                ViewBag.userCheck = "That username exists in the database.";
+                return View();
+            }
+
+            ViewBag.userCheck = "That username does not exist in the database.";
+            return View();
         }
     }
 }
