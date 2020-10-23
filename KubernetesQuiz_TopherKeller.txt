@@ -1,47 +1,48 @@
 ﻿1. What type of cloud computing service model is Kubernetes?
 D33_.NET_KubernetesFundamentals.pdf
-   1. Infrastructure as a service.
-   2. Platform as a service. (correct)
-   3. Software as a service.
-   4. Database as a service.       
+a. Infrastructure as a service.
+b. Platform as a service. (correct)
+c. Software as a service.
+d. Database as a service.       
 2. The ____ coordinates the Kubernetes cluster.
 https://kubernetes.io/docs/tutorials/kubernetes-basics/create-cluster/cluster-intro/
-   5. Leader
-   6. Main
-   7. Master (correct)
-   8. King
+a. Leader
+b. Main
+c. Master (correct)
+d. King
 3. What happens when a node goes down or is deleted after the deployment has begun?
 https://kubernetes.io/docs/tutorials/kubernetes-basics/deploy-app/deploy-intro/
-   9. The Deployment controller replaces the instance with an instance on another Node in the cluster. (correct)
-   10. The Deployment controller notifies a team, and the instance must be manually transferred to another Node.
-   11. The Deployment controller creates a clone of the dropped Node and deploys this new Node.
-   12. The Deployment controller restarts the cluster that the Node was deployed in.
+a. The Deployment controller replaces the instance with an instance on another Node in the cluster. (correct)
+b. The Deployment controller notifies a team, and the instance must be manually transferred to another Node.
+c. The Deployment controller creates a clone of the dropped Node and deploys this new Node.
+d. The Deployment controller restarts the cluster that the Node was deployed in.
 4. Which is the atomic unit on the Kubernetes platform?
 https://kubernetes.io/docs/tutorials/kubernetes-basics/explore/explore-intro/
-   13. Node
-   14. Kubernetes API
-   15. Kubernetes Cluster
-   16. Pod (correct)
+a. Node
+b. Kubernetes API
+c. Kubernetes Cluster
+d. Pod (correct)
 5. What abstraction allows pods to die and be replicated in Kubernetes?
 https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/
-   17. Nodes
-   18. The Kubernetes API
-   19. Services (correct)
-   20. The master
+a. Nodes
+b. The Kubernetes API
+c. Services (correct)
+d. The master
 6. How is scaling accomplished within Kubernetes?
-   1. By instructing multiple services to expose a pod.
-   2. By changing the number of replicas in a deployment. (correct)
-   3. By manually creating more unique pods.
-   4. Scaling is not possible in Kubernetes.
+https://kubernetes.io/docs/tutorials/kubernetes-basics/scale/scale-intro/
+a. By instructing multiple services to expose a pod.
+b. By changing the number of replicas in a deployment. (correct)
+c. By manually creating more unique pods.
+d. Scaling is not possible in Kubernetes.
 7. By default, what is the maximum number of pods that can be unavailable during Kubernetes rolling updates?
 https://kubernetes.io/docs/tutorials/kubernetes-basics/update/update-intro/
-   5. Half
-   6. All but one
-   7. None
-   8. One (correct)
+a. Half
+b. All but one
+c. None
+d. One (correct)
 8. Which one is NOT an advantage of MSA?
 D32_.NET_Microservices.pdf
-1. When starting a new project, it is less complex than a monolithic approach. (correct)
-2. Easier fault isolation and bug fixing leads to higher resiliency.
-3. Loose coupling is enforced by the architecture.
-4. Long-term flexibility when new technologies are developed.
+a. When starting a new project, it is less complex than a monolithic approach. (correct)
+b. Easier fault isolation and bug fixing leads to higher resiliency.
+c. Loose coupling is enforced by the architecture.
+d. Long-term flexibility when new technologies are developed.
